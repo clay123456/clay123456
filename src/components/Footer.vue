@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class='footer'>
     <mt-tabbar :selected.sync="selected">
         <mt-tab-item id="主页">
             <router-link to='home'>
@@ -50,11 +50,19 @@ export default {
 </script>
 <style lang="css" scoped>
     img{
-        width: 40px;
+        width: 0.5rem;
         height: auto;
     }
     a{
         text-decoration: none;
         color: #555;
+    }
+    .footer{
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
+        height: 1rem;
     }
 </style>
