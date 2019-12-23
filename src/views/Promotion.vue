@@ -2,7 +2,7 @@
 <div>
     <mt-header fixed title="促销精选"></mt-header>
     <div class='promotion'>
-        <mt-navbar v-model="selected">
+        <mt-navbar v-model="selected" class='tabs'>
             <mt-tab-item id="1">选项一</mt-tab-item>
             <mt-tab-item id="2">选项二</mt-tab-item>
             <mt-tab-item id="3">选项三</mt-tab-item>
@@ -11,7 +11,7 @@
             <mt-tab-container-item id="1">
                 <ul class='tab_box'>
                     <li v-for="(item,i) in all" :key='i'>
-                        <img src="" alt=""/>
+                        <p class='img'><img :src="item.src" alt=""/></p>
                         <p class='name'>{{item.name}}</p>
                         <p class='price'>￥{{item.price}}</p>
                     </li>
@@ -20,7 +20,7 @@
             <mt-tab-container-item id="2">
                 <ul class='tab_box'>
                     <li v-for="(item,i) in boutique" :key='i'>
-                        <img src="" alt=""/>
+                        <p class='img'><img :src="item.src" alt=""/></p>
                         <p class='name'>{{item.name}}</p>
                         <p class='price'>￥{{item.price}}</p>
                     </li>
@@ -29,7 +29,7 @@
             <mt-tab-container-item id="3">
                 <ul class='tab_box'>
                     <li v-for="(item,i) in specialOffer" :key='i'>
-                        <img src="" alt=""/>
+                        <p class='img'><img :src="item.src" alt=""/></p>
                         <p class='name'>{{item.name}}</p>
                         <p class='price'>￥{{item.price}}</p>
                     </li>
@@ -45,34 +45,34 @@ export default {
         return {
             selected: '1',
             all:[
-                {id:'1',name:'精品单杯茶碗',src:'',price:'98'},
-                {id:'2',name:'景德镇功夫茶具',src:'',price:'160'},
-                {id:'3',name:'透明口红',src:'',price:'196'},
-                {id:'4',name:'香奈儿新款丝绒',src:'',price:'319'},
-                {id:'5',name:'小青柑红 普洱茶',src:'',price:'398'},
-                {id:'6',name:'武夷山 小种红茶',src:'',price:'650'},
-                {id:'7',name:'武夷山金骏眉 桐木关红茶',src:'',price:'489'},
-                {id:'8',name:'八马茶叶 浓香型赛珍珠铁观音茶叶',src:'',price:'800'},
-                {id:'9',name:'进口96度伏特加500ml',src:'',price:'568'},
-                {id:'10',name:'进口拉菲500 ML',src:'',price:'925'},
-                {id:'11',name:'进口波尔多红酒750ml',src:'',price:'1988'},
-                {id:'12',name:'进口2003年拉菲 750ml',src:'',price:'3248'}
+                {id:'1',name:'精品单杯茶碗',src:require('../assets/promotion/teaCup.jpg'),price:'98'},
+                {id:'2',name:'景德镇功夫茶具',src:require('../assets/promotion/teaSet.jpg'),price:'160'},
+                {id:'3',name:'透明口红',src:require('../assets/promotion/lipstick.jpg'),price:'196'},
+                {id:'4',name:'香奈儿新款丝绒',src:require('../assets/promotion/chanel.jpg'),price:'319'},
+                {id:'5',name:'小青柑红 普洱茶',src:require('../assets/promotion/puerTea.jpg'),price:'398'},
+                {id:'6',name:'武夷山 小种红茶',src:require('../assets/promotion/xaozhongRedTea.jpg'),price:'650'},
+                {id:'7',name:'武夷山金骏眉 桐木关红茶',src:require('../assets/promotion/tongmuTea.jpg'),price:'489'},
+                {id:'8',name:'八马茶叶 浓香型赛珍珠铁观音茶叶',src:require('../assets/promotion/babaoTea.jpg'),price:'800'},
+                {id:'9',name:'进口96度伏特加500ml',src:require('../assets/promotion/vodka.jpg'),price:'568'},
+                {id:'10',name:'进口拉菲500 ML',src:require('../assets/promotion/lafete.jpg'),price:'925'},
+                {id:'11',name:'进口波尔多红酒750ml',src:require('../assets/promotion/boerduo.jpg'),price:'1988'},
+                {id:'12',name:'进口2003年拉菲 750ml',src:require('../assets/promotion/lateteRedWin.jpg'),price:'3248'}
             ],
             boutique:[
-                {id:'1',name:'精品单杯茶碗',src:'',price:'98'},
-                {id:'2',name:'景德镇功夫茶具',src:'',price:'160'},
-                {id:'9',name:'进口96度伏特加500ml',src:'',price:'568'},
-                {id:'10',name:'进口拉菲500 ML',src:'',price:'925'},
-                {id:'11',name:'进口波尔多红酒750ml',src:'',price:'1988'},
-                {id:'12',name:'进口2003年拉菲 750ml',src:'',price:'3248'}
+                {id:'1',name:'精品单杯茶碗',src:require('../assets/promotion/teaCup.jpg'),price:'98'},
+                {id:'2',name:'景德镇功夫茶具',src:require('../assets/promotion/teaSet.jpg'),price:'160'},
+                {id:'9',name:'进口96度伏特加500ml',src:require('../assets/promotion/vodka.jpg'),price:'568'},
+                {id:'10',name:'进口拉菲500 ML',src:require('../assets/promotion/lafete.jpg'),price:'925'},
+                {id:'11',name:'进口波尔多红酒750ml',src:require('../assets/promotion/boerduo.jpg'),price:'1988'},
+                {id:'12',name:'进口2003年拉菲 750ml',src:require('../assets/promotion/lateteRedWin.jpg'),price:'3248'}
             ],
             specialOffer:[
-                {id:'3',name:'透明口红',src:'',price:'196'},
-                {id:'4',name:'香奈儿新款丝绒',src:'',price:'319'},
-                {id:'5',name:'小青柑红 普洱茶',src:'',price:'398'},
-                {id:'6',name:'武夷山 小种红茶',src:'',price:'650'},
-                {id:'7',name:'武夷山金骏眉 桐木关红茶',src:'',price:'489'},
-                {id:'8',name:'八马茶叶 浓香型赛珍珠铁观音茶叶',src:'',price:'800'}
+                {id:'3',name:'透明口红',src:require('../assets/promotion/lipstick.jpg'),price:'196'},
+                {id:'4',name:'香奈儿新款丝绒',src:require('../assets/promotion/chanel.jpg'),price:'319'},
+                {id:'5',name:'小青柑红 普洱茶',src:require('../assets/promotion/puerTea.jpg'),price:'398'},
+                {id:'6',name:'武夷山 小种红茶',src:require('../assets/promotion/xaozhongRedTea.jpg'),price:'650'},
+                {id:'7',name:'武夷山金骏眉 桐木关红茶',src:require('../assets/promotion/tongmuTea.jpg'),price:'489'},
+                {id:'8',name:'八马茶叶 浓香型赛珍珠铁观音茶叶',src:require('../assets/promotion/babaoTea.jpg'),price:'800'}
             ]
         }
     }
@@ -87,6 +87,13 @@ export default {
     .promotion{
         margin: 0.8rem 0 1rem;
     }
+    .tabs{
+        position: sticky;
+        top: 0.8rem;
+        left: 0;
+        width:100%;
+        z-index: 3;
+    }
     .tab_box{
         overflow: scroll;
         padding: 0.1rem;
@@ -96,7 +103,7 @@ export default {
     }
     .tab_box li{
         width: 49%;
-        height: 3.6rem;
+        height: 3.8rem;
         border: 1px solid #ddd;
         overflow: hidden;
         border-radius: 5px;
@@ -106,13 +113,21 @@ export default {
         text-align: center;
         font-size: 0.26rem;
         border-bottom: 1px dashed #ddd;
-        line-height: 0.5rem;
+        line-height: 0.35rem;
     }
     .tab_box li .price{
         color: red;
         text-align: center;
         font-size: 0.4rem;
         font-weight: bold;
-        line-height: 0.6rem;
+        line-height: 0.45rem;
+    }
+    .tab_box li .img{
+        width: 100%;
+        height: 3rem;
+    }
+    .tab_box li img{
+        width: 100%;
+        height: 100%;
     }
 </style>

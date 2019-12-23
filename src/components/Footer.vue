@@ -60,7 +60,7 @@ export default {
     .footer{
         width: 100%;
         position: fixed;
-        bottom: 0;
+        bottom: -4px;
         left: 0;
         z-index: 3;
         height: 1rem;
