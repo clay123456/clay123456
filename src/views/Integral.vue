@@ -7,7 +7,7 @@
         </div>
         <div class='intergral_shopping'></div>
         <ul class='intergral_goods_list'>
-            <li v-for="(item,i) in goodsList" :key="i">
+            <li v-for="(item,i) in goodsList" :key="i" @click="goToGoodsDetail(item)">
                 <div class='img_box'><img :src="item.src" alt=""></div>
                 <p class='name'>{{item.name}}</p>
                 <div class='money'>
@@ -30,19 +30,27 @@ export default {
         return {
             banner:{src:require('../assets/intergral/banner.jpg')},
             goodsList:[
-                {id:'1',src:require('../assets/intergral/win.jpg'),name:'路易十三经典装700ML干邑',intergral:'350600'},
-                {id:'2',src:require('../assets/intergral/tea.jpg'),name:'安溪乌龙茶茶铁观音400g礼盒装',intergral:'13000'},
-                {id:'3',src:require('../assets/intergral/pot.jpg'),name:'韩国进口不粘锅',intergral:'10000'},
-                {id:'4',src:require('../assets/intergral/phone.jpg'),name:'华为 P20 Pro',intergral:'300000'},
-                {id:'5',src:require('../assets/intergral/necklace.jpg'),name:'S999纯银项链',intergral:'16000'},
-                {id:'6',src:require('../assets/intergral/razor.jpg'),name:'飞利浦（Philips）S5070 电动剃须刀 全身水洗',intergral:'50000'},
-                {id:'7',src:require('../assets/intergral/hairDrier.jpg'),name:'电吹风机',intergral:'8888'},
-                {id:'9',src:require('../assets/intergral/vacuumCleaner.jpg'),name:'海尔地毯吸尘器',intergral:'30000'},
-                {id:'8',src:require('../assets/intergral/batteryFurnace.jpg'),name:'美的电子炉家用',intergral:'30000'},
-                {id:'8',src:require('../assets/intergral/iphone.jpg'),name:'Apple/苹果 正品 iphone  11全网通4G手机',intergral:'385000'}
+                {id:'1',src:require('../assets/intergral/win.jpg'),name:'路易十三经典装700ML干邑',intergral:'350600',introduce:require('../assets/intergral/luyi.png')},
+                {id:'2',src:require('../assets/intergral/tea.jpg'),name:'安溪乌龙茶茶铁观音400g礼盒装',intergral:'13000',introduce:require('../assets/intergral/anxi.png')},
+                {id:'3',src:require('../assets/intergral/pot.jpg'),name:'韩国进口不粘锅',intergral:'10000',introduce:require('../assets/intergral/jinkouguo.png')},
+                {id:'4',src:require('../assets/intergral/phone.jpg'),name:'华为 P20 Pro',intergral:'300000',introduce:require('../assets/intergral/huawei.png')},
+                {id:'5',src:require('../assets/intergral/necklace.jpg'),name:'S999纯银项链',intergral:'16000',introduce:require('../assets/intergral/xianglian.png')},
+                {id:'6',src:require('../assets/intergral/razor.jpg'),name:'飞利浦（Philips）S5070 电动剃须刀 全身水洗',intergral:'50000',introduce:require('../assets/intergral/tixudao.png')},
+                {id:'7',src:require('../assets/intergral/hairDrier.jpg'),name:'电吹风机',intergral:'8888',introduce:require('../assets/intergral/chuifengji.png')},
+                {id:'9',src:require('../assets/intergral/vacuumCleaner.jpg'),name:'海尔地毯吸尘器',intergral:'30000',introduce:require('../assets/intergral/xichenqi.png')},
+                {id:'8',src:require('../assets/intergral/batteryFurnace.jpg'),name:'美的电子炉家用',intergral:'30000',introduce:require('../assets/intergral/meidi.png')},
+                {id:'8',src:require('../assets/intergral/iphone.jpg'),name:'Apple/苹果 正品 iphone  11全网通4G手机',intergral:'385000',introduce:require('../assets/intergral/iphone.png')}
             ]
         }
-    }
+    },
+    methods:{
+        goToGoodsDetail(goods){
+            this.$router.push({
+                name:'goodsDetail',
+                params:{goods}
+            })
+        }
+    },
 }
 </script>
 <style lang="css" scoped>

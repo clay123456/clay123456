@@ -1,11 +1,6 @@
 <template>
 <div class='home'>
-    <mt-header class='home_header' title="惠购">
-        <router-link to="/" slot="left">
-            <mt-button icon="back"/>
-        </router-link>
-        <mt-button icon="more" slot="right"/>
-    </mt-header>
+    <mt-header class='home_header' title="惠购"></mt-header>
     <mt-swipe :auto="4000">
         <mt-swipe-item v-for='(banner,i) in bannerList' :key='i'>
             <img :src='banner.src' v-lazy="banner.src" alt=''/>
