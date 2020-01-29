@@ -8,6 +8,13 @@ import User from '@/views/User'
 import Register from '@/views/Register'
 import Login from '@/views/Login'
 import GoodsDetail from '@/views/GoodsDetail'
+import Recharge from '@/views/users/Recharge'
+import ReturnGoods from '@/views/users/ReturnGoods'
+import ExchangeRecord from '@/views/users/ExchangeRecord'
+import ChangePassword from '@/views/users/ChangePassword'
+import MyReturn from '@/views/users/MyReturn'
+import Billboard from '@/views/users/Billboard'
+import OnlineService from '@/views/users/OnlineService'
 
 Vue.use(VueRouter)
 
@@ -23,6 +30,13 @@ const router = new VueRouter({
         {path:'/register',name:'register',component:Register},
         {path:'/login',name:'login',component:Login},
         {path:'/goodsDetail',name:'goodsDetail',component:GoodsDetail},
+        {path:'/recharge',name:'recharge',component:Recharge},
+        {path:'/returnGoods',name:'returnGoods',component:ReturnGoods},
+        {path:'/exchangeRecord',name:'exchangeRecord',component:ExchangeRecord},
+        {path:'/changePassword',name:'changePassword',component:ChangePassword},
+        {path:'/myReturn',name:'myReturn',component:MyReturn},
+        {path:'/billboard',name:'billboard',component:Billboard},
+        {path:'/onlineService',name:'onlineService',component:OnlineService},
     ]
 })
 

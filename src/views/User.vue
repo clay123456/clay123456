@@ -6,14 +6,18 @@
         <p>积分 </p>
         <p>信用分 </p>
         <div class='recharge'>
-            <div class='recharge-left'><span>充值</span></div>
-            <div class='recharge-right'><span>退货</span></div>
+            <router-link to="/recharge"><div class='recharge-left'><span>充值</span></div></router-link>
+            <router-link to="/returnGoods"><div class='recharge-right'><span>提现</span></div></router-link>
         </div>
     </div>
     <ul class='list'>
         <li v-for="(item,i) in userList" :key="i">
-            <img :src="item.src" alt=""/>
-            <span>{{item.title}}</span>
+            <router-link :to="item.link">
+                <div>
+                    <img :src="item.src" alt=""/>
+                    <span>{{item.title}}</span>
+                </div>
+            </router-link>
         </li>
     </ul>
 </div>
@@ -23,13 +27,12 @@ export default {
     data(){
         return {
             userList:[
-                {title:'换购记录',src:require('../assets/user/repurchase-record.png')},
-                {title:'兑换专区',src:require('../assets/user/recharge.png')},
-                {title:'修改密码',src:require('../assets/user/setting-password.png')},
-                {title:'我的退货',src:require('../assets/user/user-return-goods.png')},
-                {title:'风云榜',src:require('../assets/user/ranking-list.png')},
-                {title:'在线客服',src:require('../assets/user/online-service.jpg')},
-                {title:'退出登录',src:require('../assets/user/logout.png')}
+                {title:'换购记录',src:require('../assets/user/repurchase-record.png'),link:'/exchangeRecord'},
+                {title:'修改密码',src:require('../assets/user/setting-password.png'),link:'/changePassword'},
+                {title:'我的退货',src:require('../assets/user/user-return-goods.png'),link:'/myReturn'},
+                {title:'风云榜',src:require('../assets/user/ranking-list.png'),link:'/billboard'},
+                {title:'在线客服',src:require('../assets/user/online-service.jpg'),link:'/onlineService'},
+                {title:'退出登录',src:require('../assets/user/logout.png'),link:''}
             ],
         }
     }
@@ -94,6 +97,14 @@ export default {
         line-height: 0.7rem;
         padding: 0.1rem 0.15rem;
         overflow: hidden;
+    }
+    .list li a{
+        width: 100%;
+        height: 100%;
+    }
+    .list li a div{
+        width: 100%;
+        height: 100%;
     }
     .list li img{
         width: 0.4rem;

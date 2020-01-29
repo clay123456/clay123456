@@ -1,35 +1,13 @@
 <template>
 <div class='footer'>
     <mt-tabbar :selected.sync="selected">
-        <mt-tab-item id="主页">
-            <router-link to='home'>
-                <div><img slot="icon" src="../assets/100x100.png"></div>
-                <p>主页</p>
-            </router-link>
-        </mt-tab-item>
-        <mt-tab-item id="积分">
-            <router-link to='integral'>
-                <div><img slot="icon" src="../assets/100x100.png"></div>
-                <p>积分</p>
-            </router-link>
-        </mt-tab-item>
-        <mt-tab-item id="促销">
-            <router-link to='/promotion'>
-                <div><img slot="icon" src="../assets/100x100.png"></div>
-                <p>促销</p>
-            </router-link>
-        </mt-tab-item>
-        <mt-tab-item id="购物车">
-            <router-link to='/shoppingCar'>
-                <div><img slot="icon" src="../assets/100x100.png"></div>
-                <p>购物车</p>
-            </router-link>
-        </mt-tab-item>
-        <mt-tab-item id="我的">
-            <router-link to='/user'>
-                <div><img slot="icon" src="../assets/100x100.png"></div>
-                <p>我的</p>
-            </router-link>
+        <mt-tab-item v-for="(item,i) in list" :id="item.name" :key="i">
+            <div @click="changeTabbar(i)">
+                <router-link :to="item.to">
+                    <div><img slot="icon" :src="index === i ? item.activesrc : item.src"/></div>
+                    <p :class="index === i ? 'active' : ''">{{item.name}}</p>
+                </router-link>
+            </div>
         </mt-tab-item>
     </mt-tabbar>
 </div>
@@ -44,8 +22,22 @@ export default {
     data(){
         return {
             selected: false,
+            list:[
+                {name:'主页',src:require('../assets/tabbar/home.png'),to:'/home',activesrc:require('../assets/tabbar/home-active.png')},
+                {name:'积分',src:require('../assets/tabbar/integral.png'),to:'/integral',activesrc:require('../assets/tabbar/integral-active.png')},
+                {name:'促销',src:require('../assets/tabbar/promotion.png'),to:'/promotion',activesrc:require('../assets/tabbar/promotion-active.png')},
+                {name:'购物车',src:require('../assets/tabbar/shopcar.png'),to:'/shoppingCar',activesrc:require('../assets/tabbar/shopcar-active.png')},
+                {name:'我的',src:require('../assets/tabbar/user.png'),to:'/user',activesrc:require('../assets/tabbar/user-active.png')},
+            ],
+            index: 0,
         }
-    }
+    },
+    methods:{
+        changeTabbar(i){
+            this.index = i
+        },
+        
+    },
 }
 </script>
 <style lang="css" scoped>
@@ -64,5 +56,8 @@ export default {
         left: 0;
         z-index: 3;
         height: 1rem;
+    }
+    .active{
+        color: #1296db;
     }
 </style>
